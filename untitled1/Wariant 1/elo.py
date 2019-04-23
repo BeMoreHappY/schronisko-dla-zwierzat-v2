@@ -4,4 +4,5 @@ elopsz
 wiepsz
 sdsd
 sad
-asdasda
+asdasdalkmnklmjkl
+zmiana2
