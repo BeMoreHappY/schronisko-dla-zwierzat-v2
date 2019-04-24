@@ -5,4 +5,4 @@ wiepsz
 sdsd
 sad
 asdasdalkmnklmjkl
-zmiana2
+zmiana2 i do pana
