@@ -1,10 +1,40 @@
+from os.path import isfile
 class Schronisko():
 
-    def __init__(self, number_seats):
-        self.number_seats = number_seats
-        self.number_animal = 0
-        self.free_seats = number_seats - self.number_animal
-        self.animals = {}
+    def __init__(self):
+
+        if isfile("baza") == False:
+            self.number_seats = int(input("Podaj ilosc miejsc w schronisku: "))
+            self.number_animal = 0
+            self.free_seats = self.number_seats
+            self.animals = {}
+        else:
+
+            self.baza = self.zaladuj()
+            self.number_seats = self.baza[0]
+            self.number_animal = self.baza[1]
+            self.free_seats = self.baza[2]
+            self.animals = self.baza[3]
+
+
+    def zaladuj(self):
+        import pickle
+        self.baza = []
+        try:
+            with open("baza", "rb") as f:
+                self.baza = pickle.load(f)
+        except FileNotFoundError:
+            pass
+        return self.baza
+
+    def Baza(self):
+        import pickle
+
+        with open("baza", "wb") as f:
+            dane = [self.number_seats, self.number_animal, self.free_seats, self.animals]
+            pickle.dump(dane, f)
+
+
 
     def __str__(self):
         """
@@ -58,11 +88,19 @@ class Schronisko():
 
 
 
-schronisko = Schronisko(20)
+
+
+schronisko = Schronisko()
+
+schronisko.zaladuj()
 
 print(schronisko)
+
 
 schronisko.append()
 
+schronisko.Baza()
 print(schronisko)
+
+
 
