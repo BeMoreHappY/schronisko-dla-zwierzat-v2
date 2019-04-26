@@ -101,6 +101,7 @@ schronisko.append()
 
 schronisko.Baza()
 print(schronisko)
+print(schronisko)
 
 
 
