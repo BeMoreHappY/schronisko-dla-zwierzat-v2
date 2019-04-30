@@ -1,4 +1,6 @@
 from os.path import isfile
+import tkinter as tk
+import time
 class Schronisko():
 
     def __init__(self):
@@ -51,9 +53,12 @@ class Schronisko():
         Pobiera liczbe zwierząt do dodania
         :return:
         """
-        animal = input("Jakie to zwierze: ").lower()
-        ilosc = int(input("Podaj ilosc: "))
-        return animal, ilosc
+
+
+        a = gad
+        b = wartosc
+
+        return a, b
 
     def append(self):
         """
@@ -90,18 +95,58 @@ class Schronisko():
 
 
 
-schronisko = Schronisko()
+class Frame():
 
-schronisko.zaladuj()
-
-print(schronisko)
-
-
-schronisko.append()
-
-schronisko.Baza()
-print(schronisko)
-print(schronisko)
+    def __init__(self):
+        self.window = tk.Tk()
+        self.window.title("Schronisko")
+        self.text = tk.StringVar()
+        self.schronisko = Schronisko()
+        self.domin = self.schronisko
+        self.frame()
 
 
 
+
+
+
+    def frame(self):
+        self.label = tk.Label( self.window, font = ("Times New Roman", 20),text = "Witaj w programie obsługi schroniska dla zwierząt!" )
+        self.label.pack( side = tk.TOP ) # podpinanie kontrolki pod okno
+        self.dubel = tk.Label(self.window, textvariable = self.text)
+        self.dubel.pack()
+        button = tk.Button(self.window, text = "Aktualizuj", command = self.stan_schroniska)
+        button.pack()
+        button2 = tk.Button(self.window, text = "Dodaj zwierzaka", command = self.schronisko.append)
+        button2.pack()
+        global gad
+        global wartosc
+        self.animal = tk.Entry(self.window, width = 40)
+        self.animal.pack()
+        self.value = tk.IntVar()
+        spinbox = tk.Spinbox(self.window, from_ = 3, to = 10, textvariable = self.value)
+        spinbox.pack()
+        gad = self.animal.get()
+        wartosc = self.value.get()
+
+
+
+    def stan_schroniska(self):
+        self.text.set("Witaj w schronisku! Aktualny stan schroniska:\n {}".format(self.domin))
+
+
+
+
+
+
+
+
+
+
+
+
+
+window = Frame()
+
+
+tk.mainloop()
