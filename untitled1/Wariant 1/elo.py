@@ -85,7 +85,7 @@ class Schronisko():
 
 
 
-class Frame():
+class Framee():
 
     def __init__(self):
         self.window = tk.Tk()
@@ -132,7 +132,7 @@ class Frame():
 
 
 
-window = Frame()
+window = Framee()
 
 
 tk.mainloop()
