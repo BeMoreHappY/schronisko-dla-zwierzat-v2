@@ -57,7 +57,7 @@ class Schronisko():
         :return:
         """
 
-                                         #Z fukncji number_append pobiera dane
+        #Z fukncji number_append pobiera dane
 
         self.number_animal += ilosc
         if zwierze in self.animals:
@@ -103,7 +103,7 @@ class Framee():
 
         ilosc_zwierzat = tk.Label(self.window, text = "Ilość zwierząt?")
         ilosc_zwierzat.pack()
-        self.ilosc = tk.Spinbox(self.window, from_ = 0, to = 10)
+        self.ilosc = tk.Spinbox(self.window, from_ = 0, to = 10, width= 5)
         self.ilosc.pack()
 
         dodane = tk.Label(self.window, textvariable = self.dodane)
