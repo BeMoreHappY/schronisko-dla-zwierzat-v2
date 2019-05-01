@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="b73c7bd9-8ae1-4d19-a22b-c277da5a5a67" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/Wariant 1/elo.py" beforeDir="false" afterPath="$PROJECT_DIR$/Wariant 1/elo.py" afterDir="false" />
+=======
+    <list default="true" id="b73c7bd9-8ae1-4d19-a22b-c277da5a5a67" name="Default Changelist" comment="v2">
+      <change beforePath="$PROJECT_DIR$/Wariant 1/elo.py" beforeDir="false" afterPath="$PROJECT_DIR$/Wariant 1/elo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Wariant 1/ij.py" beforeDir="false" afterPath="$PROJECT_DIR$/Wariant 1/ij.py" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,7 +19,11 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/untitled1$Unnamed.coverage" NAME="Unnamed Coverage Results" MODIFIED="1556179198785" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/schronisko-dla-zwierzat-v2/untitled1/Wariant 1" />
     <SUITE FILE_PATH="coverage/untitled1$ij.coverage" NAME="ij Coverage Results" MODIFIED="1556648664979" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Wariant 1" />
+<<<<<<< Updated upstream
     <SUITE FILE_PATH="coverage/untitled1$elo.coverage" NAME="elo Coverage Results" MODIFIED="1556661274336" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Wariant 1" />
+=======
+    <SUITE FILE_PATH="coverage/untitled1$elo.coverage" NAME="elo Coverage Results" MODIFIED="1556724793472" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Wariant 1" />
+>>>>>>> Stashed changes
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="1461984851">
@@ -38,14 +48,22 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+<<<<<<< Updated upstream
           <entry key="py" value="5575" />
+=======
+          <entry key="py" value="7743" />
+>>>>>>> Stashed changes
           <entry key="txt" value="68" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="68" />
+<<<<<<< Updated upstream
           <entry key="Python" value="5575" />
+=======
+          <entry key="Python" value="7743" />
+>>>>>>> Stashed changes
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -64,8 +82,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Wariant 1/elo.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
             <state relative-caret-position="204">
               <caret line="69" selection-start-line="69" selection-end-line="69" />
+=======
+            <state relative-caret-position="543">
+              <caret line="112" column="22" selection-start-line="112" selection-start-column="22" selection-end-line="112" selection-end-column="22" />
+>>>>>>> Stashed changes
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
                 <marker date="1556661230585" expanded="true" signature="2797:3044" ph="..." />
@@ -78,8 +101,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Wariant 1/ij.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+            <state relative-caret-position="493">
+              <caret line="29" column="23" lean-forward="true" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -251,6 +274,12 @@
       <list>
         <item itemvalue="Python.elo" />
         <item itemvalue="Python.ij" />
+<<<<<<< Updated upstream
+=======
+        <item itemvalue="Python.ij" />
+        <item itemvalue="Python.elo" />
+        <item itemvalue="Python.elo" />
+>>>>>>> Stashed changes
       </list>
     </recent_temporary>
   </component>
@@ -325,14 +354,24 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
+<<<<<<< Updated upstream
     <frame x="546" y="19" width="1400" height="1000" extended-state="0" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26865673" />
+=======
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12953092" />
+>>>>>>> Stashed changes
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3290993" />
+<<<<<<< Updated upstream
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3290993" />
+=======
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.19305857" />
+>>>>>>> Stashed changes
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -374,19 +413,31 @@
     <entry file="file://$PROJECT_DIR$/schronisko-dla-zwierzat-v2/untitled1/Wariant 1/elo.py" />
     <entry file="file://$PROJECT_DIR$/Wariant 1/ij.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="289">
           <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+=======
+        <state relative-caret-position="493">
+          <caret line="29" column="23" lean-forward="true" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Wariant 1/elo.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="204">
           <caret line="69" selection-start-line="69" selection-end-line="69" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <marker date="1556661230585" expanded="true" signature="2797:3044" ph="..." />
             <marker date="1556661230585" expanded="true" signature="3044:3052" ph="..." />
+=======
+        <state relative-caret-position="543">
+          <caret line="112" column="22" selection-start-line="112" selection-start-column="22" selection-end-line="112" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+>>>>>>> Stashed changes
           </folding>
         </state>
       </provider>

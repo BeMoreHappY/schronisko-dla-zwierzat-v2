@@ -16,3 +16,15 @@ ok = tk.Button(window, text="OK", width=20, command=HelloWorld)
 ok.pack()
 
 tk.mainloop() # wywołanie pętli komunikatów
+
+
+print("Nie ma wystarczającej liczby miejsc")
+print("Dodać {} {}?" .format(self.free_seats, zwierze[0]))
+if input("Y or N?").lower() == "y":
+    self.number_animal += self.free_seats
+    if zwierze[0] in self.animals:
+        self.animals[zwierze[0]] += self.free_seats
+    else:
+        self.animals[zwierze[0]] = self.free_seats
+
+    self.free_seats = 0

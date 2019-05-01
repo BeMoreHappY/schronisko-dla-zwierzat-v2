@@ -66,21 +66,19 @@ class Schronisko():
         :return:
         """
         if self.free_seats == 0:                                        #Sprawdza czy jest miejsce w schronisku
+<<<<<<< Updated upstream
             return print("Zbyt mało miejsca w schroniku")
 
         zwierze = self.number_append()                                  #Z fukncji number_append pobiera dane
 
+=======
+            return False
+        zwierze = [zwierze1, ilosc]
+                                         #Z fukncji number_append pobiera dane
+        print("elo")
+>>>>>>> Stashed changes
         if zwierze[1] > self.free_seats:
-            print("Nie ma wystarczającej liczby miejsc")
-            print("Dodać {} {}?" .format(self.free_seats, zwierze[0]))
-            if input("Y or N?").lower() == "y":
-                self.number_animal += self.free_seats
-                if zwierze[0] in self.animals:
-                    self.animals[zwierze[0]] += self.free_seats
-                else:
-                    self.animals[zwierze[0]] = self.free_seats
-
-                self.free_seats = 0
+            return 2, self.free_seats
         else:
             self.number_animal += zwierze[1]
             if zwierze[0] in self.animals:
@@ -90,6 +88,9 @@ class Schronisko():
 
             self.free_seats -= zwierze[1]
             print("Zwierze zostało dodane!")
+        return "elo", "melo"
+
+
 
 
 
@@ -134,13 +135,63 @@ class Frame():
     def stan_schroniska(self):
         self.text.set("Witaj w schronisku! Aktualny stan schroniska:\n {}".format(self.domin))
 
+<<<<<<< Updated upstream
 
 
+=======
+        jakie_zwierze = tk.Label(self.window, text = "Jakie to zwierzę?")
+        jakie_zwierze.pack()
+>>>>>>> Stashed changes
+
+        self.animals = tk.Entry(self.window, width = 10)
+        self.animals.pack()
+
+        ilosc_zwierzat = tk.Label(self.window, text = "Ilość zwierząt?")
+        ilosc_zwierzat.pack()
+        self.ilosc = tk.Spinbox(self.window, from_ = 0, to = 10)
+        self.ilosc.pack()
+
+<<<<<<< Updated upstream
+=======
+        dodane = tk.Label(self.window, textvariable = self.dodane)
+        dodane.pack()
+        print("pobierz")
+        animal_B = tk.Button(self.window, text="Dodaj zwierze", command=self.pobierz)
+        animal_B.pack()
+        button = tk.Button(self.window, text = "Aktualizuj", command = self.stan_schroniska)
+        button.pack()
+>>>>>>> Stashed changes
+
+    def pobierz(self):
+        self.a = str(self.animals.get())
+        self.i = int(self.ilosc.get())
+
+        print("pobierz1")
+        if self.i <= 0:
+            self.dodane.set("Dodaj przynajmniej jedno zwierze!")
+        elif self.a.isalpha() == False:
+            self.dodane.set("Nazwa zwierzęcia nie skłąda się z cyfr!")
+        elif self.schronisko.append(self.a, self.i) == False:
+            self.dodane.set("Nie ma wystarczającej liczby miejsc w schronisku!")
+
+        elif self.schronisko.append(self.a, self.i)[0] == 2:
+            print("elif")
+            self.free =  self.schronisko.append(self.a, self.i)[1]
+            self.dodane.set("Nie ma wystarczającej liczby miejsc w schronisku! Dodać {} {}?".format(self.schronisko.append(self.a, self.i)[1], self.a))
+            self.yorn_b = tk.Button(self.window, text = "Tak", command = self.yorn)
+            self.yorn_b.pack()
+
+        else:
+            print("else")
+            self.schronisko.append(self.a, self.i)
+            self.dodane.set("Zwierze {} zostało dodane do schroniska w ilości {}".format(self.a, self.i))
 
 
-
-
-
+    def yorn(self):
+        self.schronisko.append(self.a, self.schronisko.append(self.a, self.free))
+        self.yorn_b.pack_forget()
+        self.dodane.set("")
+        return 0
 
 
 
