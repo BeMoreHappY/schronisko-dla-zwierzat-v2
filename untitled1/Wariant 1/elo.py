@@ -48,30 +48,27 @@ class Schronisko():
         Zwierzeta = "Zwierzęta w schronisku: {}".format(self.animals)
         return liczba_zwierzat + '\n' + liczba_miejsc + '\n' + Zwierzeta
 
+    def wolne(self):
+        return self.free_seats
 
-
-    def append(self, zwierze1, ilosc):
+    def append(self, zwierze, ilosc):
         """
         Dodaje zwierzęta do schroniska
         :return:
         """
-        if self.free_seats == 0:                                        #Sprawdza czy jest miejsce w schronisku
-            return False
-        zwierze = [zwierze1, ilosc]
-                                         #Z fukncji number_append pobiera dane
-        print("elo")
-        if zwierze[1] > self.free_seats:
-            return 2, self.free_seats
-        else:
-            self.number_animal += zwierze[1]
-            if zwierze[0] in self.animals:
-                self.animals[zwierze[0]] += zwierze[1]
-            else:
-                self.animals[zwierze[0]] = zwierze[1]
 
-            self.free_seats -= zwierze[1]
-            print("Zwierze zostało dodane!")
-        return "elo", "melo"
+                                         #Z fukncji number_append pobiera dane
+
+        self.number_animal += ilosc
+        if zwierze in self.animals:
+            self.animals[zwierze] += ilosc
+        else:
+            self.animals[zwierze] = ilosc
+
+        self.free_seats -= ilosc
+        print("Zwierze zostało dodane!")
+
+
 
 
 
@@ -97,6 +94,7 @@ class Framee():
         self.dubel.pack()
         self.dodane = tk.StringVar()
 
+
         jakie_zwierze = tk.Label(self.window, text = "Jakie to zwierzę?")
         jakie_zwierze.pack()
 
@@ -110,8 +108,8 @@ class Framee():
 
         dodane = tk.Label(self.window, textvariable = self.dodane)
         dodane.pack()
-        print("pobierz")
-        animal_B = tk.Button(self.window, text="Dodaj zwierze", command=self.pobierz)
+
+        animal_B = tk.Button(self.window, text="Dodaj zwierze", command = self.pobierz)
         animal_B.pack()
         button = tk.Button(self.window, text = "Aktualizuj", command = self.stan_schroniska)
         button.pack()
@@ -119,30 +117,31 @@ class Framee():
     def pobierz(self):
         self.a = str(self.animals.get())
         self.i = int(self.ilosc.get())
+        self.free = self.schronisko.wolne()
 
-        print("pobierz1")
         if self.i <= 0:
             self.dodane.set("Dodaj przynajmniej jedno zwierze!")
         elif self.a.isalpha() == False:
-            self.dodane.set("Nazwa zwierzęcia nie skłąda się z cyfr!")
-        elif self.schronisko.append(self.a, self.i) == False:
+            self.dodane.set("Nazwa zwierzęcia musi się składac tylko z liter!")
+        elif self.free == 0:
             self.dodane.set("Nie ma wystarczającej liczby miejsc w schronisku!")
 
-        elif self.schronisko.append(self.a, self.i)[0] == 2:
-            print("elif")
-            self.free =  self.schronisko.append(self.a, self.i)[1]
-            self.dodane.set("Nie ma wystarczającej liczby miejsc w schronisku! Dodać {} {}?".format(self.schronisko.append(self.a, self.i)[1], self.a))
+
+        elif self.free > 0 and self.free < self.i:
+
+            self.dodane.set("Nie ma wystarczającej liczby miejsc w schronisku! Dodać {} {}?".format(self.free, self.a))
             self.yorn_b = tk.Button(self.window, text = "Tak", command = self.yorn)
             self.yorn_b.pack()
 
         else:
-            print("else")
+
             self.schronisko.append(self.a, self.i)
             self.dodane.set("Zwierze {} zostało dodane do schroniska w ilości {}".format(self.a, self.i))
 
 
     def yorn(self):
-        self.schronisko.append(self.a, self.schronisko.append(self.a, self.free))
+
+        self.schronisko.append(self.a, self.free)
         self.yorn_b.pack_forget()
         self.dodane.set("")
         return 0
