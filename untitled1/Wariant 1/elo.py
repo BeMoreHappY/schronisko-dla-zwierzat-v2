@@ -48,28 +48,18 @@ class Schronisko():
         Zwierzeta = "Zwierzęta w schronisku: {}".format(self.animals)
         return liczba_zwierzat + '\n' + liczba_miejsc + '\n' + Zwierzeta
 
-    def number_append(self):
-        """
-        Pobiera liczbe zwierząt do dodania
-        :return:
-        """
 
 
-        a = gad
-        b = wartosc
-
-        return a, b
-
-    def append(self):
+    def append(self, zwierze1, ilosc):
         """
         Dodaje zwierzęta do schroniska
         :return:
         """
         if self.free_seats == 0:                                        #Sprawdza czy jest miejsce w schronisku
             return print("Zbyt mało miejsca w schroniku")
-
-        zwierze = self.number_append()                                  #Z fukncji number_append pobiera dane
-
+        zwierze = [zwierze1, ilosc]
+                                         #Z fukncji number_append pobiera dane
+        print("elo")
         if zwierze[1] > self.free_seats:
             print("Nie ma wystarczającej liczby miejsc")
             print("Dodać {} {}?" .format(self.free_seats, zwierze[0]))
@@ -106,42 +96,38 @@ class Frame():
         self.frame()
 
 
-
-
-
-
     def frame(self):
         self.label = tk.Label( self.window, font = ("Times New Roman", 20),text = "Witaj w programie obsługi schroniska dla zwierząt!" )
         self.label.pack( side = tk.TOP ) # podpinanie kontrolki pod okno
         self.dubel = tk.Label(self.window, textvariable = self.text)
         self.dubel.pack()
+        self.dodane = tk.StringVar()
+
+        animals = tk.Entry(self.window, width = 10)
+        animals.pack()
+        ilosc = tk.Spinbox(self.window, from_ = 0, to = 10)
+        ilosc.pack()
+
+        def pobierz():
+            a = str(animals.get())
+            i = int(ilosc.get())
+            self.schronisko.append(a, i)
+            self.dodane.set("Zwierze {} zostało dodane do schroniska w ilości {}".format(a, i))
+
+
+
+
+        dodane = tk.Label(self.window, textvariable = self.dodane)
+        dodane.pack()
+        animal_B = tk.Button(self.window, text="Dodaj zwierze", command=pobierz)
+        animal_B.pack()
         button = tk.Button(self.window, text = "Aktualizuj", command = self.stan_schroniska)
         button.pack()
-        button2 = tk.Button(self.window, text = "Dodaj zwierzaka", command = self.schronisko.append)
-        button2.pack()
-        global gad
-        global wartosc
-        self.animal = tk.Entry(self.window, width = 40)
-        self.animal.pack()
-        self.value = tk.IntVar()
-        spinbox = tk.Spinbox(self.window, from_ = 3, to = 10, textvariable = self.value)
-        spinbox.pack()
-        gad = self.animal.get()
-        wartosc = self.value.get()
 
 
 
     def stan_schroniska(self):
         self.text.set("Witaj w schronisku! Aktualny stan schroniska:\n {}".format(self.domin))
-
-
-
-
-
-
-
-
-
 
 
 
