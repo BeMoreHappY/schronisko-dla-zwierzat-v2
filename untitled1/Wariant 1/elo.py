@@ -1,5 +1,6 @@
 from os.path import isfile
 import tkinter as tk
+from tkinter import messagebox
 import time
 class Schronisko():
 
@@ -51,6 +52,17 @@ class Schronisko():
     def wolne(self):
         return self.free_seats
 
+    def remove(self, zwierze, ilosc):
+        if zwierze in self.animals and self.animals[zwierze] >= ilosc:
+            self.animals[zwierze] -= ilosc
+            self.number_animal -= ilosc
+            self.free_seats += ilosc
+            if self.animals[zwierze] == 0:
+                del self.animals[zwierze]
+
+
+
+
     def append(self, zwierze, ilosc):
         """
         Dodaje zwierzęta do schroniska
@@ -70,12 +82,6 @@ class Schronisko():
 
 
 
-
-
-
-
-
-
 class Framee():
 
     def __init__(self):
@@ -85,7 +91,31 @@ class Framee():
         self.schronisko = Schronisko()
         self.domin = self.schronisko
         self.frame()
+        self.schronisko.zaladuj()
+        self.Menu()
 
+    def Menu(self):
+        menu = tk.Menu(self.window)
+        nowe_cos = tk.Menu(menu)
+        menu.add_cascade(label='Pliki', menu=nowe_cos)
+        nowe_cos.add_command(label= 'Wieprz', command= self.wieprz)
+        self.window.config(menu=menu)
+    def wieprz(self):
+        self.pobierz()
+        animal_B = tk.Button(self.window, text="Dodaj zwierze", command = self.pobierz)
+        animal_B.pack()
+        remove_animal = tk.Button(self.window, text="Usuń zwierze", command = self.Remove_animal)
+        remove_animal.pack()
+        self.jakie_zwierze.pack()
+
+
+        self.animals.pack()
+
+
+
+        self.ilosc_zwierzat.pack()
+
+        self.ilosc.pack()
 
     def frame(self):
         self.label = tk.Label( self.window, font = ("Times New Roman", 20),text = "Witaj w programie obsługi schroniska dla zwierząt!" )
@@ -93,31 +123,36 @@ class Framee():
         self.dubel = tk.Label(self.window, textvariable = self.text)
         self.dubel.pack()
         self.dodane = tk.StringVar()
-
-
-        jakie_zwierze = tk.Label(self.window, text = "Jakie to zwierzę?")
-        jakie_zwierze.pack()
-
         self.animals = tk.Entry(self.window, width = 10)
-        self.animals.pack()
-
-        ilosc_zwierzat = tk.Label(self.window, text = "Ilość zwierząt?")
-        ilosc_zwierzat.pack()
+        self.jakie_zwierze = tk.Label(self.window, text = "Jakie to zwierzę?")
+        self.ilosc_zwierzat = tk.Label(self.window, text = "Ilość zwierząt?")
         self.ilosc = tk.Spinbox(self.window, from_ = 0, to = 10, width= 5)
-        self.ilosc.pack()
+
+
+
+
+
+
+
 
         dodane = tk.Label(self.window, textvariable = self.dodane)
         dodane.pack()
 
-        animal_B = tk.Button(self.window, text="Dodaj zwierze", command = self.pobierz)
-        animal_B.pack()
-        button = tk.Button(self.window, text = "Aktualizuj", command = self.stan_schroniska)
+
+        button = tk.Button(self.window, text = "Sprawdz status", command = self.stan_schroniska)
         button.pack()
 
+
+
     def pobierz(self):
+
+
+
+
         self.a = str(self.animals.get())
         self.i = int(self.ilosc.get())
         self.free = self.schronisko.wolne()
+
 
         if self.i <= 0:
             self.dodane.set("Dodaj przynajmniej jedno zwierze!")
@@ -126,17 +161,42 @@ class Framee():
         elif self.free == 0:
             self.dodane.set("Nie ma wystarczającej liczby miejsc w schronisku!")
 
-
         elif self.free > 0 and self.free < self.i:
-
             self.dodane.set("Nie ma wystarczającej liczby miejsc w schronisku! Dodać {} {}?".format(self.free, self.a))
             self.yorn_b = tk.Button(self.window, text = "Tak", command = self.yorn)
-            self.yorn_b.pack()
+            self.yorn_b.pack(side= tk.TOP)
 
         else:
-
             self.schronisko.append(self.a, self.i)
-            self.dodane.set("Zwierze {} zostało dodane do schroniska w ilości {}".format(self.a, self.i))
+            messagebox.showinfo("Informacja","Zwierze {} zostało dodane do schroniska w ilości {}".format(self.a, self.i))
+        self.schronisko.Baza()
+
+
+    def Remove_animal(self):
+        self.animals.pack_forget()
+        self.jakie_zwierze.pack_forget()
+        self.ilosc_zwierzat.pack_forget()
+        self.ilosc.pack_forget()
+
+        self.jakie_zwierze.pack()
+
+        self.animals.pack_forget()
+        self.animals.pack()
+
+
+
+        self.ilosc_zwierzat.pack()
+
+        self.ilosc.pack()
+
+        self.a = str(self.animals.get())
+        self.i = int(self.ilosc.get())
+
+        if self.i > 0:
+            self.schronisko.remove(self.a, self.i)
+            messagebox.showinfo("Informacja","Zwierze {} zostało usunięte ze schroniska!".format(self.a))
+        else:
+            messagebox.showinfo("Informacja","Ile zwierząt usunąć?")
 
 
     def yorn(self):
