@@ -20,6 +20,7 @@ class Schronisko():
             self.animals = self.baza[3]
 
 
+
     def zaladuj(self):
         import pickle
         self.baza = []
