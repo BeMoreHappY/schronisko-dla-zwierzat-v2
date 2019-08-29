@@ -82,10 +82,31 @@ class Schronisko():
         print("Zwierze zostało dodane!")
 
 
-
-class Framee():
-
+class Control(tk.Tk):
     def __init__(self):
+        tk.Tk.__init__(self)
+        self._frame = None
+        self.switch_frame(Framee)
+
+    def switch_frame(self, frame_class):
+        """Destroys current frame and replaces it with a new one."""
+        new_frame = frame_class(self)
+        if self._frame is not None:
+            self._frame.destroy()
+        self._frame = new_frame
+        self._frame.pack()
+
+class PageOne(tk.Frame):
+    def __init__(self, master):
+        tk.Frame.__init__(self, master)
+        tk.Label(self, text="This is page one").pack(side="top", fill="x", pady=10)
+        tk.Button(self, text="Return to start page",
+                  command=lambda: master.switch_frame(Framee)).pack()
+
+class Framee(tk.Frame):
+
+    def __init__(self, master):
+        tk.Frame.__init__(self, master)
         self.window = tk.Tk()
         self.window.title("Schronisko")
         self.text = tk.StringVar()
@@ -94,6 +115,9 @@ class Framee():
         self.frame()
         self.schronisko.zaladuj()
         self.Menu()
+
+        tk.Button(self, text="Open page one",
+                  command=lambda: master.switch_frame(PageOne)).pack()
 
     def Menu(self):
         menu = tk.Menu(self.window)
@@ -108,14 +132,8 @@ class Framee():
         remove_animal = tk.Button(self.window, text="Usuń zwierze", command = self.Remove_animal)
         remove_animal.pack()
         self.jakie_zwierze.pack()
-
-
         self.animals.pack()
-
-
-
         self.ilosc_zwierzat.pack()
-
         self.ilosc.pack()
 
     def frame(self):
@@ -129,26 +147,13 @@ class Framee():
         self.ilosc_zwierzat = tk.Label(self.window, text = "Ilość zwierząt?")
         self.ilosc = tk.Spinbox(self.window, from_ = 0, to = 10, width= 5)
 
-
-
-
-
-
-
-
         dodane = tk.Label(self.window, textvariable = self.dodane)
         dodane.pack()
-
 
         button = tk.Button(self.window, text = "Sprawdz status", command = self.stan_schroniska)
         button.pack()
 
-
-
     def pobierz(self):
-
-
-
 
         self.a = str(self.animals.get())
         self.i = int(self.ilosc.get())
@@ -212,8 +217,6 @@ class Framee():
 
 
 
-
-window = Framee()
-
-
-tk.mainloop()
+if __name__ == "__main__":
+    app = Control()
+    app.mainloop()
